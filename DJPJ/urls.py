@@ -15,6 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+# 왜지?.. 왜 include를 뒤로 했더니 오류가 잡혔을까..?
 
 urlpatterns = [
     # path('', include('board.urls')),
