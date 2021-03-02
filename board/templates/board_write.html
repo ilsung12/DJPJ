@@ -2,26 +2,20 @@
 
 {% block contents %}
 <div class="row mt-5">
-    <div class="col-12 text-center">
-        <h1>로그인</h1>
-    </div>
-</div>
-<div class="row mt-5">
-    <div class="col-12">
-        {{error}}
-        <!--views.py 안에 키와 매핑-->
-    </div>
-</div>
-<div class="row mt-5">
     <div class="col-12">
         <form method="POST" action=".">
             {% csrf_token %}
-            <!--장고에서는 폼의 경우 크로스도메인을 막기위해 키를 숨겨주어 자동으로 막아줌 + 안써주면 에러남-->
             {% for field in form %}
             <div class="form-group">
                 <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                {{ field.field.widget.name }}
+                {% ifequal field.name 'contents' %}
+                <textarea class="form-control" name="{{ field.name }}" placeholder="{{ field.label }}"></textarea>
+
+                {% else %}
                 <input type="{{ field.field.widget.input_type }}" class="form-control" id="{{ field.id_for_label}}"
                     placeholder="{{ field.label }}" name="{{ field.name }}" />
+                {% endifequal %}
             </div>
             {% if field.errors %}
             <span style="color: red">{{ field.errors }}</span>
@@ -29,8 +23,9 @@
             {% endif %}
             {% endfor %}
 
-            <button type="submit" class="btn btn-primary">로그인</button>
+            <button type="submit" class="btn btn-primary">글쓰기</button>
         </form>
     </div>
 </div>
+
 {% endblock %}

@@ -1,11 +1,8 @@
-from django.urls import path, re_path
-from board import views
-
+from django.urls import path
+from . import views
 
 urlpatterns = [
-    path('', views.index, name="index"),
-    path('select/', views.select, name="select"),
-    path('select/<int:value>', views.select, name="select"),
-    #re_path(r'^select/(?P<value>[0-9]{4}/$', views.select, name="re_select"),
-    path('result/', views.result, name="result"),
+    path('detail/<int:pk>/', views.board_detail),
+    path('list/', views.board_list),
+    path('write/', views.board_write),
 ]

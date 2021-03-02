@@ -22,5 +22,6 @@ urlpatterns = [
     # path('', include('board.urls')),
     path('admin/', admin.site.urls),
     path('fcuser/', include('fcuser.urls')),
+    path('board/', include('board.urls')),
     path('', home),
 ]
