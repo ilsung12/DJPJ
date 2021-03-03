@@ -6,14 +6,7 @@ from .forms import LoginForm
     
 
 def home(request):
-    user_id = request.session.get('user')
-
-    if user_id:
-        fcuser = Fcuser.objects.get(pk=user_id)
-        return HttpResponse(fcuser.username)
-        # 로그인 성공시 유저네임 출력
-    return HttpResponse('Home')
-
+    return render(request, 'home.html')
 
 def logout(request):
     if request.session.get('user'):
