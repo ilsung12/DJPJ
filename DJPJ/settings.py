@@ -28,7 +28,7 @@ SECRET_KEY = '#0ooc8zuhnxq7j+8$kg_=f$y(_m2274pir3s8fdlip0e#qu=^k'
 DEBUG = False
 
 ALLOWED_HOSTS = [
-    'ilsung123.pythonanywhere.com'
+    'ilsunghan.pythonanywhere.com'
 ]
 
 
